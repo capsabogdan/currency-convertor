@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.map"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.map"></script>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h3 class="container text-center green">Vue Currency Converter</h3>
+
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect1">From: </label>
+            <select
+              v-model="from"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option :value="currency" v-for="currency in formattedCurrencies">
+                {{currency}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect2">To: </label>
+            <select
+              v-model="to"
+              class="form-control"
+              id="exampleFormControlSelect2"
+            >
+              <option :value="currency" v-for="currency in formattedCurrencies">
+                {{currency}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect3">Amount: </label>
+            <input
+              v-model="amount"
+              class="form-control"
+              id="exampleFormControlSelect3"
+            />
+          </div>
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect4">Result: </label>
+            <input
+              :value="calculateResult"
+              class="form-control"
+              id="exampleFormControlSelect4"
+            />
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="d-flex align-items-end">
+            <button
+              @click="convertCurrency()"
+              class="btn btn-primary background-green"
+            >
+              {{ 'Convert'}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- crypto -->
+      <h3 class="container text-center">Vue Crypto Converter</h3>
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect5">From: </label>
+            <select
+              v-model="from_crypto"
+              class="form-control"
+              id="exampleFormControlSelect5"
+            >
+              <option
+                :value="crypto_symbol"
+                v-for="crypto_symbol in formattedCryptoCurrenciesFrom"
+              >
+                {{crypto_symbol}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect6">To: </label>
+            <select
+              v-model="to_crypto"
+              class="form-control"
+              id="exampleFormControlSelect6"
+            >
+              <option
+                :value="crypto_symbol"
+                v-for="crypto_symbol in formattedCryptoCurrenciesTo"
+              >
+                {{crypto_symbol}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect7">Amount: </label>
+            <input
+              v-model="crypto_amount"
+              class="form-control"
+              id="exampleFormControlSelect7"
+            />
+          </div>
+          <div class="col-sm-2 form-group">
+            <label for="exampleFormControlSelect8">Result: </label>
+            <input
+              :value="calculateCryptoResult"
+              class="form-control"
+              id="exampleFormControlSelect8"
+            />
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="d-flex align-items-end">
+            <button @click="convertCryptoCurrency()" class="btn btn-primary">
+              {{ 'Convert'}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
