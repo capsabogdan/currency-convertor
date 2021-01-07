@@ -1,0 +1,6 @@
+h3{margin:2em auto 1em auto;color:indigo!important;}
+button{margin-top:2em;padding-left:30px!important;padding-right:30px!important;background-color:indigo!important;border-color:indigo!important;font-weight:bold!important;}
+button:hover{background-color:white!important;border-color:indigo!important;font-weight:bold!important;color:indigo!important;border-width:2px!important;}
+.green{color:green!important;}
+.background-green{background-color:green!important;border-color:green!important;}
+button.background-green:hover{background-color:white!important;border-color:green!important;font-weight:bold!important;color:green!important;border-width:2px!important;}
